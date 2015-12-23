@@ -1,0 +1,54 @@
+function opcoObject() {
+	this.account_type = getDefaultAccountType();
+	this.apn = getApn();
+
+	this.country = "Belgium";
+	this.currency = "&#8364;";
+	this.data_notification = "";
+	this.dns1 = "";
+	this.dns2 = "";
+	this.help_url = "www.proximus.be";
+	this.homepageUrl = "http://www.proximus.be";
+	this.message_centre_number = "+32475161616";
+	this.method = "";
+	this.my_account_url = "https://secure.proximus.be/secure-static/Customer/en/Login/SPH_Reg_Login.html?&laf=customer&lan=en&functionid=myproximus&fromurl=https 3A 2F 2Fsecure.proximus.be 2Fmyproximus 2F 3F 26lan 3Den";
+	this.my_account_registration = "https://secure.proximus.be/secure-static/Customer/en/Login/SPH_Reg_Login.html?&laf=customer&lan=en&functionid=myproximus&fromurl=https 3A 2F 2Fsecure.proximus.be 2Fmyproximus 2F 3F 26lan 3Den";
+	this.operator = "Proximus";
+	this.partner_branding = "Partner";
+	this.partnerLogo = "Banner20601.png";
+	this.password = "";
+	this.check_balance_method = "";
+	this.prepay = { check : "", topup : "" , online : ""};
+	this.check_balance_SMS_MSG = "";
+	this.top_up_by_voucher = "disabled";
+	this.balance_check_replace = "";
+	this.balance_check_with = "";
+	this.top_up_name = "TopUp";
+	this.topup_successful_pattern = "";
+	this.topup_sms_message = "";
+	this.security = "PAP";
+	this.send = "";
+	this.msisdn_send_message = "";
+	this.receive = "";
+	this.msisdn_receive_message = "";
+	this.supportUrl = "www.proximus.be";
+	this.ThreeG = "UMTS";
+	this.GSM = "GSM";
+	this.TwoG = "GPRS";
+	this.edge = "EDGE";
+	this.HSDPA = "HSDPA";
+	this.HSUPA = "HSUPA";
+	this.HSPAPLUSDC = "HSPA+";
+	this.HSPAPLUS = "HSPA+";
+	this.LTE = "4G";
+	this.username = "";
+	this.welcome_message = "";
+	this.dataBundleIntro = "";
+	this.dataBundleImportantTitle = "";
+	this.dataBundleImportantPara = "";
+	this.dataBundleInfoText = "";
+	this.dataBundleInfoLink = [];
+	this.dataBundlePurchaseTerms = [];
+	this.dataBundles = [];
+}
+ 

@@ -1,0 +1,54 @@
+function opcoObject() {
+	this.account_type = getDefaultAccountType();
+	this.apn = getApn();
+
+	this.country = "Malta";
+	this.currency = "";
+	this.data_notification = "";
+	this.dns1 = "80.85.96.131";
+	this.dns2 = "80.85.97.70";
+	this.help_url = "https://www.vodafone.com.mt/support";
+	this.homepageUrl = "http://www.vodafone.com.mt";
+	this.message_centre_number = "+356941816";
+	this.method = "";
+	this.my_account_url = "http://www.vodafone.com.mt";
+	this.my_account_registration = "http://www.vodafone.com.mt";
+	this.operator = "Vodafone Malta";
+	this.partner_branding = "No";
+	this.partnerLogo = "";
+	this.password = "internet";
+	this.check_balance_method = "";
+	this.prepay = { check : "", topup : "" , online : ""};
+	this.check_balance_SMS_MSG = "";
+	this.top_up_by_voucher = "disabled";
+	this.balance_check_replace = "";
+	this.balance_check_with = "";
+	this.top_up_name = "TopUp";
+	this.topup_successful_pattern = "";
+	this.topup_sms_message = "";
+	this.security = "PAP";
+	this.send = "";
+	this.msisdn_send_message = "";
+	this.receive = "";
+	this.msisdn_receive_message = "";
+	this.supportUrl = "https://www.vodafone.com.mt/support";
+	this.ThreeG = "3G";
+	this.GSM = "GSM";
+	this.TwoG = "GPRS";
+	this.edge = "EDGE";
+	this.HSDPA = "HSDPA";
+	this.HSUPA = "HSUPA";
+	this.HSPAPLUSDC = "HSDPA";
+	this.HSPAPLUS = "HSDPA";
+	this.LTE = "4G";
+	this.username = "internet";
+	this.welcome_message = "";
+	this.dataBundleIntro = "";
+	this.dataBundleImportantTitle = "";
+	this.dataBundleImportantPara = "";
+	this.dataBundleInfoText = "";
+	this.dataBundleInfoLink = [];
+	this.dataBundlePurchaseTerms = [];
+	this.dataBundles = [];
+}
+ 

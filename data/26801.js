@@ -1,0 +1,54 @@
+function opcoObject() {
+	this.account_type = getDefaultAccountType();
+	this.apn = getApn();
+
+	this.country = "Portugal";
+	this.currency = "&#8364;";
+	this.data_notification = "351911353700, 351911353300, 351911353800, 351911353600";
+	this.dns1 = "";
+	this.dns2 = "";
+	this.help_url = "http://www.vodafone.pt";
+	this.homepageUrl = "http://www.vodafone.pt";
+	this.message_centre_number = "+351911616161";
+	this.method = "";
+	this.my_account_url = "http://www.vodafone.pt";
+	this.my_account_registration = "http://www.vodafone.pt";
+	this.operator = "vodafone P";
+	this.partner_branding = "No";
+	this.partnerLogo = "";
+	this.password = "vodafone";
+	this.check_balance_method = "";
+	this.prepay = { check : "", topup : "" , online : ""};
+	this.check_balance_SMS_MSG = "";
+	this.top_up_by_voucher = "disabled";
+	this.balance_check_replace = "";
+	this.balance_check_with = "";
+	this.top_up_name = "TopUp";
+	this.topup_successful_pattern = "";
+	this.topup_sms_message = "";
+	this.security = "CHAP";
+	this.send = "";
+	this.msisdn_send_message = "";
+	this.receive = "";
+	this.msisdn_receive_message = "";
+	this.supportUrl = "http://www.vodafone.pt";
+	this.ThreeG = "3G";
+	this.GSM = "GSM";
+	this.TwoG = "GPRS";
+	this.edge = "EDGE";
+	this.HSDPA = "HSDPA";
+	this.HSUPA = "HSUPA";
+	this.HSPAPLUSDC = "HSDPA";
+	this.HSPAPLUS = "HSDPA";
+	this.LTE = "4G";
+	this.username = "vodafone";
+	this.welcome_message = "16910";
+	this.dataBundleIntro = "";
+	this.dataBundleImportantTitle = "";
+	this.dataBundleImportantPara = "";
+	this.dataBundleInfoText = "";
+	this.dataBundleInfoLink = [];
+	this.dataBundlePurchaseTerms = [];
+	this.dataBundles = [];
+}
+ 

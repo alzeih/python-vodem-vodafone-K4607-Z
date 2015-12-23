@@ -1,0 +1,54 @@
+function opcoObject() {
+	this.account_type = getDefaultAccountType();
+	this.apn = getApn();
+
+	this.country = "Turkey (Cyprus)";
+	this.currency = "";
+	this.data_notification = "";
+	this.dns1 = "";
+	this.dns2 = "";
+	this.help_url = "http://www.kktctelsim.com";
+	this.homepageUrl = "http://www.kktctelsim.com";
+	this.message_centre_number = "+905429800033";
+	this.method = "USSD";
+	this.my_account_url = "https://www.vodafone.com.tr/MyVodafone/myvodafone.home.php";
+	this.my_account_registration = "https://www.vodafone.com.tr/MyVodafone/myvodafone.home.php";
+	this.operator = "VF KKTC Telsim";
+	this.partner_branding = "No";
+	this.partnerLogo = "";
+	this.password = "";
+	this.check_balance_method = "";
+	this.prepay = { check : "", topup : "*122#%code%#%password%#" , online : "https://www.vodafone.com.tr/MyVodafone/kontor-islemleri.php"};
+	this.check_balance_SMS_MSG = "";
+	this.top_up_by_voucher = "USSD";
+	this.balance_check_replace = "";
+	this.balance_check_with = "";
+	this.top_up_name = "Y&uuml;kleme";
+	this.topup_successful_pattern = "KREDI YUKLEDINIZ";
+	this.topup_sms_message = "";
+	this.security = "None";
+	this.send = "#99#";
+	this.msisdn_send_message = "";
+	this.receive = "%MSISDN%";
+	this.msisdn_receive_message = "";
+	this.supportUrl = "http://www.kktctelsim.com";
+	this.ThreeG = "3G";
+	this.GSM = "GSM";
+	this.TwoG = "GPRS";
+	this.edge = "EDGE";
+	this.HSDPA = "3G";
+	this.HSUPA = "3G+";
+	this.HSPAPLUSDC = "3G+";
+	this.HSPAPLUS = "3G+";
+	this.LTE = "4G";
+	this.username = "";
+	this.welcome_message = "";
+	this.dataBundleIntro = "";
+	this.dataBundleImportantTitle = "";
+	this.dataBundleImportantPara = "";
+	this.dataBundleInfoText = "";
+	this.dataBundleInfoLink = [];
+	this.dataBundlePurchaseTerms = [];
+	this.dataBundles = [];
+}
+ 

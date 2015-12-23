@@ -1,0 +1,54 @@
+function opcoObject() {
+	this.account_type = getDefaultAccountType();
+	this.apn = getApn();
+
+	this.country = "Ireland";
+	this.currency = "&#8364;";
+	this.data_notification = "50193, 50189, 50190, 50191, 50192";
+	this.dns1 = "";
+	this.dns2 = "";
+	this.help_url = "http://www.vodafone.ie/helpsupport";
+	this.homepageUrl = "http://www.vodafone.ie";
+	this.message_centre_number = "+35387699989";
+	this.method = "SMS";
+	this.my_account_url = "https://www.vodafone.ie/myv/services/login/login.jsp?redirect=/myv/index.jsp";
+	this.my_account_registration = "https://www.vodafone.ie/myv/services/registration/index.jsp?ts=1298645500598&redirect=/myv/index.jsp";
+	this.operator = "Vodafone Ireland";
+	this.partner_branding = "No";
+	this.partnerLogo = "";
+	this.password = "vodafone";
+	this.check_balance_method = "SMS";
+	this.prepay = { check : "50190", topup : "50191" , online : "https://www.vodafone.ie/df/topup/index.jsp"};
+	this.check_balance_SMS_MSG = "VMCBAL:";
+	this.top_up_by_voucher = "SMS";
+	this.balance_check_replace = "";
+	this.balance_check_with = "";
+	this.top_up_name = "TopUp";
+	this.topup_successful_pattern = "Your top up has been successful";
+	this.topup_sms_message = "Topup: %code%";
+	this.security = "None";
+	this.send = "50189";
+	this.msisdn_send_message = "MYMSISDN:";
+	this.receive = "50189";
+	this.msisdn_receive_message = "MYMSISDN: %MSISDN%";
+	this.supportUrl = "http://www.vodafone.ie/helpsupport";
+	this.ThreeG = "3G";
+	this.GSM = "GSM";
+	this.TwoG = "GPRS";
+	this.edge = "EDGE";
+	this.HSDPA = "HSDPA";
+	this.HSUPA = "HSUPA";
+	this.HSPAPLUSDC = "HSDPA";
+	this.HSPAPLUS = "HSDPA";
+	this.LTE = "4G";
+	this.username = "vodafone";
+	this.welcome_message = "Vodafone";
+	this.dataBundleIntro = "Once you have topped up we recommend you buy a data bundle to get the best value.  Data Add ons are for domestic use only.";
+	this.dataBundleImportantTitle = "IMPORTANT";
+	this.dataBundleImportantPara = "If you have an existing data add on with data remaining, this balance will be lost when you purchase a new data add on.";
+	this.dataBundleInfoText = "Current Data Add on pricing";
+	this.dataBundleInfoLink = [{"InfoLink" : "http://www.vodafone.ie/prepaymobilebroadband/bundlepricing"}];
+	this.dataBundlePurchaseTerms = [];
+	this.dataBundles = [{"dataBundle"  :"Broadband Daily", "smsNum" : "50192", "smsBody" : "BUY: Addon1" }, {"dataBundle" : "Broadband Weekly", "smsNum" : "50192", "smsBody" : "BUY: Addon2"},{"dataBundle" : "Broadband Monthly", "smsNum" : "50192", "smsBody" : "BUY: Addon3"}];
+}
+ 

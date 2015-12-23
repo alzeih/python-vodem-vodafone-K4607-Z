@@ -1,0 +1,54 @@
+function opcoObject() {
+	this.account_type = getDefaultAccountType();
+	this.apn = getApn();
+
+	this.country = "Qatar";
+	this.currency = "";
+	this.data_notification = "111";
+	this.dns1 = "";
+	this.dns2 = "";
+	this.help_url = "http://www.vodafone.com.qa";
+	this.homepageUrl = "http://www.vodafone.com.qa";
+	this.message_centre_number = "+9747922222";
+	this.method = "USSD";
+	this.my_account_url = "http://www.vodafone.com.qa";
+	this.my_account_registration = "http://www.vodafone.com.qa";
+	this.operator = "Vodafone Qatar";
+	this.partner_branding = "No";
+	this.partnerLogo = "";
+	this.password = "";
+	this.check_balance_method = "USSD_SMS";
+	this.prepay = { check : "*129#", topup : "*127*%code%#" , online : "http://www.vodafone.com.qa/topup"};
+	this.check_balance_SMS_MSG = "";
+	this.top_up_by_voucher = "USSD";
+	this.balance_check_replace = "";
+	this.balance_check_with = "";
+	this.top_up_name = "Recharge";
+	this.topup_successful_pattern = "";
+	this.topup_sms_message = "";
+	this.security = "None";
+	this.send = "*#100#";
+	this.msisdn_send_message = "";
+	this.receive = "%MSISDN%";
+	this.msisdn_receive_message = "";
+	this.supportUrl = "http://www.vodafone.com.qa";
+	this.ThreeG = "3G";
+	this.GSM = "GSM";
+	this.TwoG = "GPRS";
+	this.edge = "EDGE";
+	this.HSDPA = "3G+";
+	this.HSUPA = "HSUPA";
+	this.HSPAPLUSDC = "3G+";
+	this.HSPAPLUS = "3G+";
+	this.LTE = "4G";
+	this.username = "";
+	this.welcome_message = "";
+	this.dataBundleIntro = "";
+	this.dataBundleImportantTitle = "";
+	this.dataBundleImportantPara = "";
+	this.dataBundleInfoText = "";
+	this.dataBundleInfoLink = [];
+	this.dataBundlePurchaseTerms = [];
+	this.dataBundles = [];
+}
+ 

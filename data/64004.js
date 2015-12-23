@@ -1,0 +1,54 @@
+function opcoObject() {
+	this.account_type = getDefaultAccountType();
+	this.apn = getApn();
+
+	this.country = "Tanzania";
+	this.currency = "";
+	this.data_notification = "";
+	this.dns1 = "";
+	this.dns2 = "";
+	this.help_url = "http://www.vodacom.co.tz";
+	this.homepageUrl = "http://www.vodacom.co.tz";
+	this.message_centre_number = "+25575114";
+	this.method = "";
+	this.my_account_url = "http://www.vodacom.co.tz";
+	this.my_account_registration = "http://www.vodacom.co.tz";
+	this.operator = "Vodacom Tanzania";
+	this.partner_branding = "Vodacom";
+	this.partnerLogo = "Banner64004.png";
+	this.password = "";
+	this.check_balance_method = "USSD";
+	this.prepay = { check : "*103#", topup : "*105*%code%#" , online : ""};
+	this.check_balance_SMS_MSG = "";
+	this.top_up_by_voucher = "USSD";
+	this.balance_check_replace = "";
+	this.balance_check_with = "";
+	this.top_up_name = "TopUp";
+	this.topup_successful_pattern = "";
+	this.topup_sms_message = "";
+	this.security = "CHAP";
+	this.send = "";
+	this.msisdn_send_message = "";
+	this.receive = "";
+	this.msisdn_receive_message = "";
+	this.supportUrl = "http://www.vodacom.co.tz";
+	this.ThreeG = "3G";
+	this.GSM = "GSM";
+	this.TwoG = "GPRS";
+	this.edge = "EDGE";
+	this.HSDPA = "3G HSDPA";
+	this.HSUPA = "HSUPA";
+	this.HSPAPLUSDC = "3G HSDPA";
+	this.HSPAPLUS = "3G HSDPA";
+	this.LTE = "4G";
+	this.username = "";
+	this.welcome_message = "";
+	this.dataBundleIntro = "";
+	this.dataBundleImportantTitle = "";
+	this.dataBundleImportantPara = "";
+	this.dataBundleInfoText = "";
+	this.dataBundleInfoLink = [];
+	this.dataBundlePurchaseTerms = [];
+	this.dataBundles = [];
+}
+ 

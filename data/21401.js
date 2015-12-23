@@ -1,0 +1,54 @@
+function opcoObject() {
+	this.account_type = getDefaultAccountType();
+	this.apn = getApn();
+
+	this.country = "Spain";
+	this.currency = "&#8364;";
+	this.data_notification = "22167, 2213600,22134";
+	this.dns1 = "";
+	this.dns2 = "";
+	this.help_url = "http://www.vodafone.es/particulares/gestion_datos";
+	this.homepageUrl = "http://www.vodafone.es";
+	this.message_centre_number = "+34607003110";
+	this.method = "USSD";
+	this.my_account_url = "http://www.vodafone.es/mivodafone";
+	this.my_account_registration = "http://www.vodafone.es/mivodafone";
+	this.operator = "vodafone ES";
+	this.partner_branding = "No";
+	this.partnerLogo = "";
+	this.password = "vodafone";
+	this.check_balance_method = "USSD_SMS";
+	this.prepay = { check : "*134#", topup : "*133*%voucher%#" , online : "http://www.vodafone.es/recargas"};
+	this.check_balance_SMS_MSG = "";
+	this.top_up_by_voucher = "USSD";
+	this.balance_check_replace = "";
+	this.balance_check_with = "";
+	this.top_up_name = "Recarga";
+	this.topup_successful_pattern = "";
+	this.topup_sms_message = "";
+	this.security = "PAP";
+	this.send = "*138#";
+	this.msisdn_send_message = "";
+	this.receive = "%MSISDN%";
+	this.msisdn_receive_message = "";
+	this.supportUrl = "http://www.vodafone.es/particulares/gestion_datos";
+	this.ThreeG = "3G";
+	this.GSM = "GSM";
+	this.TwoG = "GPRS";
+	this.edge = "EDGE";
+	this.HSDPA = "HSDPA";
+	this.HSUPA = "HSPA";
+	this.HSPAPLUSDC = "HSDPA+";
+	this.HSPAPLUS = "HSDPA+";
+	this.LTE = "4G";
+	this.username = "vodafone";
+	this.welcome_message = "Vodafone-ES";
+	this.dataBundleIntro = "Elige el bono de datos que quieres compar";
+	this.dataBundleImportantTitle = "IMPORTANTE";
+	this.dataBundleImportantPara = "Para informaci&oacute;n de las condiciones de los bonos, visite nuestra web aqu&iacute;";
+	this.dataBundleInfoText = "Visite nuestra web aqu&iacute;";
+	this.dataBundleInfoLink = [{"InfoLink" : "http://www.vodafone.es/mivodafone"}];
+	this.dataBundlePurchaseTerms = [];
+	this.dataBundles = [{"dataBundle"  :"MENSUAL 100MB", "smsNum" : "228800", "smsBody" : "C BAS" }, {"dataBundle" : "MENSUAL 500 MB",  "smsNum" : "228800", "smsBody" : "C AVA"}, {"dataBundle" : "MENSUAL 1GB", "smsNum" : "228800", "smsBody" : "C PRE"}, {"dataBundle" : "SEMANAL",  "smsNum" : "228800", "smsBody" : "C SEM"}, {"dataBundle" : "FIN DE SEMANA",  "smsNum" : "228800", "smsBody" : "C QUI"},  {"dataBundle" : "MENSUAL 2GB",  "smsNum" : "228800", "smsBody" :  "C MES"}];
+}
+ 

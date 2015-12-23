@@ -1,0 +1,54 @@
+function opcoObject() {
+	this.account_type = getDefaultAccountType();
+	this.apn = getApn();
+
+	this.country = "Egypt";
+	this.currency = "EGP";
+	this.data_notification = "868, Vodafone";
+	this.dns1 = "163,121,128,134";
+	this.dns2 = "212.103.160.18";
+	this.help_url = "http://www.vodafone.com.eg/help";
+	this.homepageUrl = "http://www.vodafone.com.eg";
+	this.message_centre_number = "+20105996500";
+	this.method = "USSD";
+	this.my_account_url = "http://www.vodafone.com.eg/data";
+	this.my_account_registration = "n/a";
+	this.operator = "Vodafone Egypt";
+	this.partner_branding = "No";
+	this.partnerLogo = "";
+	this.password = "internet";
+	this.check_balance_method = "USSD_SMS";
+	this.prepay = { check : "*868*1#", topup : "*858*%code%#" , online : ""};
+	this.check_balance_SMS_MSG = "";
+	this.top_up_by_voucher = "USSD_SMS";
+	this.balance_check_replace = "";
+	this.balance_check_with = "";
+	this.top_up_name = "";
+	this.topup_successful_pattern = "";
+	this.topup_sms_message = "";
+	this.security = "PAP";
+	this.send = "*878#";
+	this.msisdn_send_message = "";
+	this.receive = "Mobile Number is %MSISDN%";
+	this.msisdn_receive_message = "";
+	this.supportUrl = "http://www.vodafone.com.eg/help";
+	this.ThreeG = "3G";
+	this.GSM = "GSM";
+	this.TwoG = "GPRS";
+	this.edge = "EDGE";
+	this.HSDPA = "HSDPA";
+	this.HSUPA = "HSUPA";
+	this.HSPAPLUSDC = "HSPA+";
+	this.HSPAPLUS = "HSPA+";
+	this.LTE = "4G";
+	this.username = "internet";
+	this.welcome_message = "";
+	this.dataBundleIntro = "";
+	this.dataBundleImportantTitle = "";
+	this.dataBundleImportantPara = "";
+	this.dataBundleInfoText = "";
+	this.dataBundleInfoLink = [];
+	this.dataBundlePurchaseTerms = [];
+	this.dataBundles = [];
+}
+ 

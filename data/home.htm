@@ -1,0 +1,393 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <base target="_blank"/>
+    <style type="text/css">
+        #fullPage { visibility: hidden; }
+    </style>
+
+    <script src="js/lib/jquery-1.8.3.min.js" type="text/javascript"></script>
+
+    <script src="js/webuiconfig.js" type="text/javascript"></script>
+    <script src="js/JsIncludesRepo.js" type="text/javascript"></script>
+    <script src="js/WebUIProductName.js" type="text/javascript"></script>
+
+    <script type="text/javascript">
+
+        var scriptQueue = [];
+        jQuery.extend( {
+            getScript: function(url, callback) {
+                callback = callback || $.noop;
+
+                function appendScript(url, callback) {
+                    if ($('script[src="' + url + '"]').length > 0) {
+                        callback();
+                        return;
+                    }
+                    var head = document.getElementsByTagName("head")[0],
+                        script = document.createElement('script');
+
+                    script.src = url;
+                    script.type = 'text/javascript';
+                    if (script.readyState && script.onload!==null) {
+                        script.onreadystatechange = function() {
+                            if ( script.readyState === "loaded" || script.readyState === "complete" ) {
+                                script.onreadystatechange = null;
+                                callback();
+                            }
+                        };
+                    } else {
+                        script.onload = callback;
+                    }
+                    head.appendChild(script);
+                }
+
+                function addScriptToHead(){
+                    var scriptItem = scriptQueue[0];
+                    appendScript(scriptItem.url, function () {
+                        scriptItem.callback();
+                        scriptQueue.shift();
+                        if(scriptQueue.length > 0){
+                            addScriptToHead();
+                        }
+                    });
+                }
+
+                var scriptItem = {
+                    url: url,
+                    callback: callback
+                };
+                scriptQueue.push(scriptItem);
+                if(scriptQueue.length === 1){
+                    addScriptToHead();
+                }
+            }
+        });
+
+        $(document).ready(function () {
+            var setupFiles, scripts = [], css = [];
+
+            function setupMinified() {
+                scripts = ["js/pages/allpages-min.js", "js/allwebui-min.js"];
+            }
+
+            function setupDebug() {
+                scripts = [
+                    "js/lib/jquery.showhide.js",
+                    "js/lib/jquery.tmpl.min.js",
+                    "js/lib/log4javascript.js",
+                    "js/Extend_jQuery.js",
+                    "js/json2.js",
+                    "js/Util.js",
+                    "js/view.js",
+                    "js/deviceDetermination.js",
+                    "js/modules.js",
+                    "js/layout.js",
+                    "js/productInfo.js",
+                    "js/Page.js",
+                    "js/pageCache.js",
+                    "js/guestUserLogic.js",
+                    "js/webUiLoader.js",
+                    "js/helpMobileWifi.js",
+                    "js/helpQuickstart.js",
+                    "js/EgyptUSSD.js"
+                ];
+
+                css = ['css/site.css'];
+            }
+
+            function addCssToHead(files, isViewCss) {
+                isViewCss = isViewCss === undefined ? false : isViewCss;
+                var viewStyle = isViewCss ? ' viewCss' : '';
+                $.each(files, function(idx, file) {
+                    if ($.browser.msie && parseInt($.browser.version, 10) <= 8 && document.createStyleSheet) {
+                        document.createStyleSheet(file);
+                    } else {
+                        if(file.indexOf('rtl') > -1){
+                            $('<link media="all" rel="stylesheet" class="' + viewStyle + '" href="' + file + '" />').insertAfter('#throbberCSS');
+                        }else{
+                            $('<link media="all" rel="stylesheet" class="' + viewStyle + '" href="' + file + '" />').insertAfter('#favicon');
+                        }
+                    }
+                });
+            }
+            window.addCssToHead = addCssToHead;
+
+            function loadJs(files) {
+                $.each(files, function(idx, file) {
+                    $.getScript(file);
+                });
+            }
+
+            setupFiles = window.isProduction ? setupMinified : setupDebug;
+
+            function init() {
+                setupFiles();
+                addCssToHead(css);
+                loadJs(scripts);
+            }
+
+            init();
+        });
+    </script>
+
+
+
+    <link id="favicon" href="img/favicon/vodafone.png" rel="icon" type="image/png"/>
+
+    <link href="css/print-home.css" rel="stylesheet" type="text/css" media="print" class="viewCss"/>
+    <link id='throbberCSS' href="css/throbber.css" rel="stylesheet" type="text/css" media="projection, screen"/>
+    <!--[if IE 7]>
+    <link href="css/ie7.css" rel="stylesheet" type="text/css" media="projection, screen" class="viewCss"/>
+    <![endif]-->
+    <!--[if IE 6]>
+    <link href="css/ie6.css" rel="stylesheet" type="text/css" media="projection, screen" class="viewCss"/>
+    <link href="css/ie6site.css" rel="stylesheet" type="text/css" media="projection, screen" class="viewCss"/>
+    <![endif]-->
+
+    <meta charset="utf-8"/>
+    <meta http-equiv='cache-control' content='no-cache'/>
+    <meta http-equiv='expires' content='0'/>
+    <meta http-equiv='pragma' content='no-cache'/>
+    <meta http-equiv="X-UA-Compatible" content="IE=8"/>
+    <meta name="viewport" class="viewCss" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+    <script src="js/lib/log4javascript.js" type="text/javascript"></script>
+    <!--[if IE 6]>
+    <script src="js/IE6Fix.js" type="text/javascript"></script>
+    <![endif]-->
+
+    <title></title>
+
+</head>
+<body>
+<div id="styleSheetOnLoadHelper" style="display:none;"></div>
+<ul class="topGlobalNav_loading loadingMenus" data-menuelement="topGlobalNav"></ul>
+<ul class="menu_loading loadingMenus" data-menuelement="menu"></ul>
+<ul class="greyArrowList_loading loadingMenus" data-menuelement="greyArrowList"></ul>
+<div id="fullPage" style = "display: none">
+<ul id="orientation">
+    <li><a href="#mainContent" id="skipToContent">&nbsp;</a></li>
+</ul>
+
+<div id="header" data-role="header" data-position="fixed" data-tap-toggle="false">
+    <div id="mastheadWrapper">
+        <ul id='topGlobalNav'></ul>
+        <div id="topLinks"></div>
+        <div id="lowBatteryWarning" class="mobilewifi" style="display: none;"></div>
+        <div id="warning" style="display: none;"></div>
+    </div>
+    <ul id="menu">
+        <h2 id="pageTitle"></h2>
+    </ul>
+</div>
+
+<div id="slideShow" class="mobileView"></div>
+
+<div id="gridNoHeroSpace">
+    <img id="caution" alt="caution.gif" src="img/icons/caution.gif"/>
+
+    <h1></h1>
+
+
+    <div id="body" >
+    </div>
+
+    <div id="template3Sidebar" class="threeColumn">
+        <div class="mod3ColSidebar">
+            <div class="modBodyWrapShort">
+                <div class="modCopy">
+
+                    <div>
+                        <div id="NetworkStatus">
+                            <div id="networkStatusHeader" class="title">
+                                <h2 id="networkInfoTitle">
+                                </h2>
+                            </div>
+                            <div class="modBodySidebar mobileViewNetwork">
+                                <div class="modCopy clearfix">
+                                    <dl class="networkStatusList">
+                                        <div class="networkStatusRow">
+                                            <dt id="mobileNumberLabel" class=" MOBILE_NUMBER netMobNumber networkInfoDataLeft">
+                                            </dt>
+                                            <dd id="mobileNumberText"
+                                                class="netMobNumValue networkInfoDataRight"></dd>
+                                        </div>
+                                        <div class="networkStatusRow">
+                                            <dt id="mobileSignalLabel" class="SIGNAL netSignal networkInfoDataLeft">
+                                            </dt>
+                                            <dd id="mobileSignaltext"
+                                                class="signalStrengthNone networkInfoDataRight"></dd>
+                                        </div>
+                                        <div class="networkStatusRow">
+                                            <dt id="mobileStatusLabel" class="STATUS netStatus networkInfoDataLeft">
+                                            </dt>
+                                            <dd id="mobileStatusText" class="networkInfoDataRight">
+                                                <div id="mobileStatus"></div>
+                                                <span id="mobileStatusIcon" class="redCross"></span>
+                                            </dd>
+                                        </div>
+                                        <div class="networkStatusRow">
+                                            <dt id="mobileNetworkLabel" class="NETWORK netName networkInfoDataLeft">
+                                            </dt>
+                                            <dd id="mobileNetworkText"
+                                                class="netNameValue networkInfoDataRight"></dd>
+                                        </div>
+                                        <div class="networkStatusRow">
+                                            <dt id="mobileConnectTimeLabel"
+                                                class="TIME_CONNECTED netConnectTime networkInfoDataLeft">
+                                            </dt>
+                                            <dd id="mobileConnectTimeText"
+                                                class="netConnTimeValue networkInfoDataRight"></dd>
+                                        </div>
+                                        <div class="networkStatusRow">
+                                            <dt class="netDataVolume networkInfoDataLeft">
+                                                <div class="loggedIn" style="display: none">
+                                                    <div class="desktopView" style="display: none">
+                                                        <a class="TOTAL_VOL  unlocked" data-pageName="diagnostics"
+                                                           data-pageParameters="expand=status"
+                                                           id="mobileDataVolumeLabel" >
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="mobileView">
+                                                    <a class="TOTAL_VOL loggedIn unlocked" data-pageName="diagnostics"
+                                                       data-pageParameters="expand=status"
+                                                       id="mobileDataVolumeLabelMobile" style="display: none">
+                                                    </a>
+                                                </div>
+
+                                                <span class="TOTAL_VOL notLoggedIn locked">
+                                                </span>
+                                            </dt>
+                                            <dd id="mobileDataVolumeText"
+                                                class="netDataVolValue networkInfoDataRight"></dd>
+                                        </div>
+                                        <div class="networkStatusRow">
+                                            <dt id="mobileDataRateLabelUp"
+                                                class="mobileDataRateLabel netDataRate networkInfoDataLeft">
+                                                <img src="img/icons/arrowUpSpeed.gif" alt="" height="5" width="10"/>
+                                                |
+                                                <span id="mobileDataRateUpLabel"><span class="UP"></span></span>
+                                            </dt>
+                                            <dd class="netDataRateValue networkInfoDataRight">
+                                                <span id="mobileDataRateTextUp"></span>
+                                            </dd>
+                                        </div>
+                                        <div class="networkStatusRow">
+                                            <dt id="mobileDataRateLabelDown"
+                                                class="mobileDataRateLabel netDataRate clearfix networkInfoDataLeft">
+                                                <img src="img/icons/arrowDownSpeed.gif" alt="" width="10"
+                                                     height="5"/>
+                                                |
+                                                <span id="mobileDataRateDownLabel"><span class="DOWN"></span></span>
+                                            </dt>
+                                            <dd class="netDataRateValue networkInfoDataRight">
+                                                <span id="mobileDataRateTextDown"></span>
+                                            </dd>
+                                        </div>
+                                    </dl>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="rhsBatteryStatus" class="batteryItem mobilewifi">
+                            <div id="batteryStatusHeader" class="title">
+                                <h2 id="batteryStatusTitle">
+                                    <a>
+                                        <div class="rhsMenuText wordwrap TR_BATTERY_STATUS"></div>
+                                    </a>
+                                </h2>
+                            </div>
+                            <div class="modBodySidebar">
+                                <div class="modCopy clearfix">
+                                    <img id="batteryLevelImage"/>
+
+                                    <p class="TR_BATTERY_FULL_MESSAGE" id="batteryPercentage2"></p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="rhsWifiStatus" class="mobilewifi clearfix">
+                            <div id="wifiStatusHeader" class="title">
+                                <h2 id="rhsBoxTitle">
+                                    <a>
+                                        <div class="rhsMenuText wordwrap TR_WIFI_STATUS_TITLE"></div>
+                                    </a>
+                                </h2>
+                            </div>
+                            <div class="modBodySidebar">
+                                <div class="modCopy clearfix">
+                                    <ul class="networkStatusList" id="wifiStatusList">
+                                        <li id="wifiStatus">
+                                            <span id="wifiStatusText" class="TR_WIFI_ENABLED"></span>
+                                        </li>
+                                        <li id="ssidStatus">
+                                            <span class="TR_WIFI_SSID left"></span>
+                                            <span id="RhsSSIDName" class="WIFISSID right"></span>
+                                        </li>
+                                        <li id="securityStatus">
+                                            <span class="TR_WIFI_SECURITY left"></span>
+                                                <span id="RhsSecuritySetting"
+                                                      class="TR_WIFI_SECURITY_SETTING right"></span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="rhsConnectedDevices" class="mobilewifi">
+                            <div id="connectedDevicesStatusHeader" class="title">
+                                <h2 id="connectedDevicesStatusTitle">
+                                    <a>
+                                        <div class="rhsMenuText wordwrap TR_CONNECTED_DEVICES"></div>
+                                    </a>
+                                </h2>
+                            </div>
+                            <div class="modBodySidebar">
+                                <div class="modCopy clearfix">
+                                    <div id="connectedDevicesList">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="mobileViewSwitch">
+                            <a class="mobViewSwitch desktopView viewSwitch" data-pageName="home-mobile" data-pageParameters="view=mobile"><span class="TR_MOBILE_VIEW_SWITCH"></span></a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="footer" class="footer"></div>
+    <noscript>
+        <p class="footerNoJavascript">
+            This page uses JavaScript. Your browser either doesn't support JavaScript or you
+            have it turned off. This page remains functional without JavaScript, however, to
+            see and use this page as it is meant to appear and be used, please use a JavaScript
+            enabled browser.</p>
+    </noscript>
+</div>
+
+<div class="genericPopupOverlay" id="customPromptOverlayMobileViewBanner" style="display:none"></div>
+<div class="genericPopupOverlay" id="customPromptOverlay" style = "display:none"><iframe frameBorder="0" scrolling="no"></iframe></div>
+</div>
+
+   <div id="throbber">
+       <div class="throbberOverlay"></div>
+       <div class="throbberWhiteBg">
+           <img src="img/icons/loading.gif"><br>
+           <span id="throbberText" class="TR_LOADING"></span>
+       </div>
+   </div>
+   <div id="throbberSearching" style="display:none">
+       <div class="throbberOverlay"></div>
+       <div class="throbberWhiteBg">
+           <img src="img/icons/loading.gif"><br>
+           <span class="NETWORK_NAME_SEARCHING_FOR_NETWORK"></span>
+       </div>
+   </div>
+</body>
+</html>

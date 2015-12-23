@@ -1,0 +1,54 @@
+function opcoObject() {
+	this.account_type = getDefaultAccountType();
+	this.apn = getApn();
+
+	this.country = "Brazil";
+	this.currency = "R$";
+	this.data_notification = "";
+	this.dns1 = "";
+	this.dns2 = "";
+	this.help_url = "http://www.vodafonebrasil.com/pt/contato.php";
+	this.homepageUrl = "http://www.vodafonebrasil.com/";
+	this.message_centre_number = ".+55";
+	this.method = "";
+	this.my_account_url = "http://www.vodafonebrasil.com/";
+	this.my_account_registration = "http://www.vodafonebrasil.com/";
+	this.operator = "Vodafone BR";
+	this.partner_branding = "No";
+	this.partnerLogo = "";
+	this.password = "";
+	this.check_balance_method = "";
+	this.prepay = { check : "", topup : "" , online : ""};
+	this.check_balance_SMS_MSG = "";
+	this.top_up_by_voucher = "disabled";
+	this.balance_check_replace = "";
+	this.balance_check_with = "";
+	this.top_up_name = "";
+	this.topup_successful_pattern = "";
+	this.topup_sms_message = "";
+	this.security = "PAP";
+	this.send = "";
+	this.msisdn_send_message = "";
+	this.receive = "";
+	this.msisdn_receive_message = "";
+	this.supportUrl = "http://www.vodafonebrasil.com/pt/contato.php";
+	this.ThreeG = "3G";
+	this.GSM = "GSM";
+	this.TwoG = "GRPS";
+	this.edge = "EDGE";
+	this.HSDPA = "3G+";
+	this.HSUPA = "3G+";
+	this.HSPAPLUSDC = "3G+";
+	this.HSPAPLUS = "3G+";
+	this.LTE = "4G";
+	this.username = "";
+	this.welcome_message = "";
+	this.dataBundleIntro = "";
+	this.dataBundleImportantTitle = "";
+	this.dataBundleImportantPara = "";
+	this.dataBundleInfoText = "";
+	this.dataBundleInfoLink = [];
+	this.dataBundlePurchaseTerms = [];
+	this.dataBundles = [];
+}
+ 

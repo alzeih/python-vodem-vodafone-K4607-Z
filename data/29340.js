@@ -1,0 +1,54 @@
+function opcoObject() {
+	this.account_type = getDefaultAccountType();
+	this.apn = getApn();
+
+	this.country = "Slovenia";
+	this.currency = "&pound;";
+	this.data_notification = "";
+	this.dns1 = "";
+	this.dns2 = "";
+	this.help_url = "http://www.simobil.si";
+	this.homepageUrl = "http://www.simobil.si";
+	this.message_centre_number = "+38640441000";
+	this.method = "USSD";
+	this.my_account_url = "http://www.simobil.si/prijava ";
+	this.my_account_registration = "http://www.simobil.si/prijava ";
+	this.operator = "Si.mobil";
+	this.partner_branding = "Partner";
+	this.partnerLogo = "Banner29340.png";
+	this.password = "internet";
+	this.check_balance_method = "USSD";
+	this.prepay = { check : "*448#", topup : "*448*HRN#%code%#" , online : ""};
+	this.check_balance_SMS_MSG = "";
+	this.top_up_by_voucher = "USSD";
+	this.balance_check_replace = "#";
+	this.balance_check_with = "&pound;";
+	this.top_up_name = "Polni";
+	this.topup_successful_pattern = "novo stanje";
+	this.topup_sms_message = "";
+	this.security = "CHAP";
+	this.send = "*100#";
+	this.msisdn_send_message = "";
+	this.receive = "%MSISDN%";
+	this.msisdn_receive_message = "";
+	this.supportUrl = "http://www.simobil.si";
+	this.ThreeG = "3G";
+	this.GSM = "GSM";
+	this.TwoG = "GPRS";
+	this.edge = "EDGE";
+	this.HSDPA = "HSDPA";
+	this.HSUPA = "HSUPA";
+	this.HSPAPLUSDC = "HSDPA";
+	this.HSPAPLUS = "HSDPA";
+	this.LTE = "4G";
+	this.username = "simobil";
+	this.welcome_message = "";
+	this.dataBundleIntro = "";
+	this.dataBundleImportantTitle = "";
+	this.dataBundleImportantPara = "";
+	this.dataBundleInfoText = "";
+	this.dataBundleInfoLink = [];
+	this.dataBundlePurchaseTerms = [];
+	this.dataBundles = [];
+}
+ 
