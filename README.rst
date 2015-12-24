@@ -3,7 +3,7 @@ Synopsis
 
 Vodem Vodafone K4607-Z Web Interface Python bindings
 
-|docs|
+|docs| |pypi|
 
 Code Example
 ============
@@ -107,3 +107,6 @@ MIT. See LICENCE.
     :target: http://python-vodem-vodafone-k4607-z.readthedocs.org/en/latest/?badge=latest
     :alt: Documentation Status
 
+.. |pypi| image:: https://badge.fury.io/py/vodem-vodafone-K4607-Z.svg
+    :target: https://badge.fury.io/py/vodem-vodafone-K4607-Z
+    :alt: PyPi Version
