@@ -6,12 +6,13 @@ import vodem.simple
 
 logging.basicConfig(level=logging.DEBUG)
 
+
 def main():
     """ main loop """
     while True:
         # only works if no one is looking at the web interface
         count = vodem.simple.sms_get_flag()
-        logging.info('New: %s', new)
+        logging.info('New: %s', count)
         if count > 0:
             logging.info("getting new messages")
             for message in vodem.simple.sms_inbox_unread():
