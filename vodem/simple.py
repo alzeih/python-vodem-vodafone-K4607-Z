@@ -6,48 +6,56 @@ from . import api, util
 
 logging.basicConfig()
 
+
 def sms_get_flag():
     response = api.sms_received_flag()
     logging.getLogger(__name__).debug(response)
     return util.decode_number(response['sms_received_flag'])
+
 
 def sms_set_flag():
     response = api.sms_received_flag_flag()
     logging.getLogger(__name__).debug(response)
     return util.decode_number(response['sms_received_flag']) == 0
 
+
 def sms_unread_count():
     response = api.sms_unread_num()
     logging.getLogger(__name__).debug(response)
     return util.decode_number(response['sms_dev_unread_count'])
+
 
 def sms_inbox_count():
     response = api.sms_capacity_info()
     logging.getLogger(__name__).debug(response)
     return util.decode_number(response['sms_nv_rev_total'])
 
+
 def sms_outbox_count():
     response = api.sms_capacity_info()
     logging.getLogger(__name__).debug(response)
     return util.decode_number(response['sms_nv_send_total'])
+
 
 def sms_draftbox_count():
     response = api.sms_capacity_info()
     logging.getLogger(__name__).debug(response)
     return util.decode_number(response['sms_nv_draftbox_total'])
 
+
 def sms_set_read(index):
     encoded_index = '{0};'.format(index)
 
     params = {
-        'msg_id' : encoded_index,
-        }
+        'msg_id': encoded_index,
+    }
 
     logging.getLogger(__name__).debug(params)
     response = api.set_msg_read(params)
     logging.getLogger(__name__).debug(response)
 
     return util.decode_result(response['result'])
+
 
 def sms_save(number, message, async=False):
     encoded_number = '{0};'.format(number)
@@ -56,11 +64,11 @@ def sms_save(number, message, async=False):
     message_encoding = util.encoding_of(message)
 
     params = {
-        'SMSNumber' : encoded_number,
-        'SMSMessage' : encoded_message,
-        'sms_time' : encoded_time,
+        'SMSNumber': encoded_number,
+        'SMSMessage': encoded_message,
+        'sms_time': encoded_time,
         'encode_type': message_encoding,
-        }
+    }
     logging.getLogger(__name__).debug(params)
     response = api.save_sms(params)
     logging.getLogger(__name__).debug(response)
@@ -183,12 +191,12 @@ def sms_send(number, message, index=-1, async=False):
     message_encoding = util.encoding_of(message)
 
     params = {
-        'Number' : encoded_number,
-        'MessageBody' : encoded_message,
-        'sms_time' : encoded_time,
-        'ID' : encoded_index,
+        'Number': encoded_number,
+        'MessageBody': encoded_message,
+        'sms_time': encoded_time,
+        'ID': encoded_index,
         'encode_type': message_encoding,
-        }
+    }
     logging.getLogger(__name__).debug(params)
     response = api.send_sms(params)
     logging.getLogger(__name__).debug(response)
@@ -196,12 +204,13 @@ def sms_send(number, message, index=-1, async=False):
     if not async:
         return _wait_for_status('4')
 
+
 def sms_delete(index, async=False):
     encoded_index = '{0};'.format(index)
 
     params = {
-        'msg_id' : encoded_index,
-        }
+        'msg_id': encoded_index,
+    }
     logging.getLogger(__name__).debug(params)
     response = api.delete_sms(params)
     logging.getLogger(__name__).debug(response)
@@ -228,8 +237,8 @@ def _wait_for_status(sms_cmd, wait_max_times=10, wait_interval=2.0):
     wait_count = 0
 
     params = {
-        'sms_cmd' : sms_cmd,
-        }
+        'sms_cmd': sms_cmd,
+    }
     logging.getLogger(__name__).debug(params)
     while True:
         # wait first to allow device time to process request
@@ -244,6 +253,7 @@ def _wait_for_status(sms_cmd, wait_max_times=10, wait_interval=2.0):
         # if device has not processed anything for given sms_cmd since reset
         # response value is garbage, so ignore it and wait again
         if 'sms_cmd_status_result' in status_response.keys():
-            status = util.decode_sms_cmd_status_info(status_response['sms_cmd_status_result'])
+            status = util.decode_sms_cmd_status_info(
+                status_response['sms_cmd_status_result'])
             if status is not None:
                 return status

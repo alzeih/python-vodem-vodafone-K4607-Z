@@ -3,6 +3,7 @@ import unittest
 
 from vodem.util import encode_time
 
+
 class TestEncodeTime(unittest.TestCase):
 
     def setUp(self):

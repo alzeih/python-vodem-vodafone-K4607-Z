@@ -1,14 +1,15 @@
 import unittest
 
-from vodem.api import activate_flag    
+from vodem.api import activate_flag
+
 
 class TestActivateFlag(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
         cls.valid_response = {
-            'activate_flag' : '',
-            }
+            'activate_flag': '',
+        }
 
     def test_call(self):
         resp = activate_flag()

@@ -44,7 +44,7 @@ For more examples consult the examples directory
 Motivation
 ==========
 
-This interface is built to integrate sms capability into an application, or other functions of the vodem that are exposed via the web interface. 
+This interface is built to integrate sms capability into an application, or other functions of the vodem that are exposed via the web interface.
 
 It requires the hardware vodem and activated sim card.
 

@@ -2,6 +2,7 @@ import unittest
 
 from vodem.api import sms_capacity_info
 
+
 class TestSmsCapacityInfo(unittest.TestCase):
 
     @classmethod
@@ -17,8 +18,6 @@ class TestSmsCapacityInfo(unittest.TestCase):
             'sms_sim_total': '0'
         }
 
-
     def test_call(self):
         resp = sms_capacity_info()
         self.assertEqual(self.valid_response, resp)
-

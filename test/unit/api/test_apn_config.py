@@ -1,6 +1,7 @@
 import unittest
 
-from vodem.api import apn_config    
+from vodem.api import apn_config
+
 
 class TestApnConfig(unittest.TestCase):
 
@@ -20,6 +21,5 @@ class TestApnConfig(unittest.TestCase):
         }
 
     def test_call(self):
-        resp = apn_config({'multi-data' : '1'})
+        resp = apn_config({'multi-data': '1'})
         self.assertEqual(self.valid_response, resp)
-

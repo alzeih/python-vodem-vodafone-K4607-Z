@@ -1,6 +1,7 @@
 import unittest
 
-from vodem.api import ipv4_apn_list    
+from vodem.api import ipv4_apn_list
+
 
 class TestIpv4ApnList(unittest.TestCase):
 
@@ -17,9 +18,8 @@ class TestIpv4ApnList(unittest.TestCase):
             'ipv4_apn_list7': '',
             'ipv4_apn_list8': '',
             'ipv4_apn_list9': '',
-            }
+        }
 
     def test_call(self):
         resp = ipv4_apn_list()
         self.assertEqual(self.valid_response, resp)
-

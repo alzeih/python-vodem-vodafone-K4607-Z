@@ -6,6 +6,7 @@ from .exceptions import DecodeError
 
 logging.basicConfig()
 
+
 def decode_number(message):
     logging.getLogger(__name__).debug(message)
     try:
@@ -14,6 +15,7 @@ def decode_number(message):
         return int(message, 10)
     except Exception as ex:
         raise DecodeError(ex)
+
 
 def decode_result(message):
     logging.getLogger(__name__).debug(message)
@@ -26,12 +28,14 @@ def decode_result(message):
     except Exception as ex:
         raise DecodeError(ex)
 
+
 def decode_sms_tag(message):
     logging.getLogger(__name__).debug(message)
     try:
         return int(message)
     except Exception as ex:
         raise DecodeError(ex)
+
 
 def decode_sms_id(message):
     logging.getLogger(__name__).debug(message)
@@ -40,6 +44,7 @@ def decode_sms_id(message):
     except Exception as ex:
         raise DecodeError(ex)
 
+
 def decode_sms_cmd_status_info(message):
     logging.getLogger(__name__).debug(message)
     try:
@@ -47,12 +52,14 @@ def decode_sms_cmd_status_info(message):
     except Exception as ex:
         raise DecodeError(ex)
 
+
 def decode_sms_message(message):
     logging.getLogger(__name__).debug(message)
     try:
         return bytes.fromhex(message).decode('utf-16-be')
     except Exception as ex:
         raise DecodeError(ex)
+
 
 def encode_sms_message(message):
     logging.getLogger(__name__).debug(message)
@@ -82,6 +89,7 @@ def decode_time(message):
     except Exception as ex:
         raise DecodeError(ex)
 
+
 def encode_time(message):
     logging.getLogger(__name__).debug(message)
     try:
@@ -89,8 +97,10 @@ def encode_time(message):
     except Exception as ex:
         raise DecodeError(ex)
 
+
 def decode_wan_manual_contents_long(message):
     logging.getLogger(__name__).debug(message)
+
     def strip_chars(bad):
         """ This should't need to exist """
         return (
@@ -99,7 +109,7 @@ def decode_wan_manual_contents_long(message):
             re.sub(r'\"', '', bad[2]),
             re.sub(r'\D', '', bad[3]),
             bad[4]
-            )
+        )
     # I have nothing nice to say here about vendor.js:1323
     try:
         expr = re.compile(r'\(([^,]*),([^,]*),([^,]*),([^,]*),([^,]*)\),')

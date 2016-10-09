@@ -2,6 +2,7 @@ import unittest
 
 from vodem.util import decode_time
 
+
 class TestDecodeTime(unittest.TestCase):
 
     def setUp(self):

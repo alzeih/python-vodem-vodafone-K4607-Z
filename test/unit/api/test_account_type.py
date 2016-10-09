@@ -1,13 +1,14 @@
 import unittest
-from vodem.api import account_type    
+from vodem.api import account_type
+
 
 class TestAccountType(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
         cls.valid_response = {
-            'account_type' : ''
-            }
+            'account_type': ''
+        }
 
     def test_call(self):
         resp = account_type()

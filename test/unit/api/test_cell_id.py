@@ -1,6 +1,7 @@
 import unittest
 
-from vodem.api import cell_id   
+from vodem.api import cell_id
+
 
 class TestCellId(unittest.TestCase):
 
@@ -13,4 +14,3 @@ class TestCellId(unittest.TestCase):
     def test_call(self):
         resp = cell_id()
         self.assertEqual(self.valid_response, resp)
-

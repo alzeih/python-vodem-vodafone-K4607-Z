@@ -18,10 +18,11 @@ import os
 import unittest
 from unittest import SkipTest, TestSuite
 
+
 def load_tests(loader, standard_tests, pattern):
     if os.getenv("VODAFONE_DESTRUCTIVE") == None:
         raise SkipTest('These tests may delete your data or cost you money.'
-            'Please read help({0})'.format(__name__))
+                       'Please read help({0})'.format(__name__))
     this_dir = os.path.dirname(__file__)
     package_tests = loader.discover(start_dir=this_dir, pattern=pattern)
     standard_tests.addTests(package_tests)
