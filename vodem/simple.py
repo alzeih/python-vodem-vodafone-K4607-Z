@@ -53,11 +53,13 @@ def sms_save(number, message, async=False):
     encoded_number = '{0};'.format(number)
     encoded_message = util.encode_sms_message(message)
     encoded_time = util.encode_time(datetime.datetime.now())
+    message_encoding = util.encoding_of(message)
 
     params = {
         'SMSNumber' : encoded_number,
         'SMSMessage' : encoded_message,
         'sms_time' : encoded_time,
+        'encode_type': message_encoding,
         }
     logging.getLogger(__name__).debug(params)
     response = api.save_sms(params)
@@ -164,12 +166,14 @@ def sms_send(number, message, index=-1, async=False):
     encoded_message = util.encode_sms_message(message)
     encoded_time = util.encode_time(datetime.datetime.now())
     encoded_index = '{0};'.format(index)
+    message_encoding = util.encoding_of(message)
 
     params = {
         'Number' : encoded_number,
         'MessageBody' : encoded_message,
         'sms_time' : encoded_time,
         'ID' : encoded_index,
+        'encode_type': message_encoding,
         }
     logging.getLogger(__name__).debug(params)
     response = api.send_sms(params)

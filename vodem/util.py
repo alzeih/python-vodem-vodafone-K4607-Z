@@ -49,21 +49,30 @@ def decode_sms_cmd_status_info(message):
 
 def decode_sms_message(message):
     logging.getLogger(__name__).debug(message)
-    def decode(characters):
-        return '{0}'.format(chr(int(characters, 16)))
     try:
-        return ''.join([decode(x) for x in re.findall('....', message)])
+        return bytes.fromhex(message).decode('utf-16-be')
     except Exception as ex:
         raise DecodeError(ex)
 
 def encode_sms_message(message):
     logging.getLogger(__name__).debug(message)
-    def encode(character):
-        return '{0:0=4x}'.format(ord(character))
     try:
-        return ''.join([encode(x) for x in message])
+        return bytes.hex(message.encode('utf-16-be'))
     except Exception as ex:
         raise DecodeError(ex)
+
+
+def encoding_of(message):
+    logging.getLogger(__name__).debug(message)
+    try:
+        are_utf16 = [len(encode_sms_message(m)) == 8 for m in message]
+        if any(are_utf16):
+            return 'UNICODE'
+        else:
+            return 'GSM7_default'
+    except UnicodeDecodeError as ex:
+        raise DecodeError(ex)
+
 
 def decode_time(message):
     logging.getLogger(__name__).debug(message)
