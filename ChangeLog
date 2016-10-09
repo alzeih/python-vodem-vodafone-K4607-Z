@@ -4,6 +4,7 @@ CHANGES
 0.2.0
 -----
 
+* Update year to current
 * fix warning when building docs
 * fix code error in examples
 * make syntax meet flake8 rules
