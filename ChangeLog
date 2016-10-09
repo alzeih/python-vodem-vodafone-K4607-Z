@@ -4,6 +4,7 @@ CHANGES
 0.2.0
 -----
 
+* Add a safe option for failed decoding to be ignored
 * remove pyenv version
 * Support for a greater number of characters including emoji
 * Add pypi version badge

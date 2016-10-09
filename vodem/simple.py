@@ -68,10 +68,12 @@ def sms_save(number, message, async=False):
     if not async:
         return _wait_for_status('5')
 
-def sms_inbox_unread(per_page=10):
+
+def sms_inbox_unread(per_page=10, safe=False):
     current_page = 1
     while True:
-        current_page_data = sms_inbox_page(page=current_page, count=per_page)
+        current_page_data = sms_inbox_page(
+            page=current_page, count=per_page, safe=safe)
         if len(current_page_data) != 0:
             for message in current_page_data:
                 if message['tag'] == 1:
@@ -80,10 +82,12 @@ def sms_inbox_unread(per_page=10):
         else:
             return
 
-def sms_inbox_read(per_page=10):
+
+def sms_inbox_read(per_page=10, safe=False):
     current_page = 1
     while True:
-        current_page_data = sms_inbox_page(page=current_page, count=per_page)
+        current_page_data = sms_inbox_page(
+            page=current_page, count=per_page, safe=safe)
         if len(current_page_data) != 0:
             for message in current_page_data:
                 if message['tag'] == 0:
@@ -92,10 +96,12 @@ def sms_inbox_read(per_page=10):
         else:
             return
 
-def sms_inbox(per_page=10):
+
+def sms_inbox(per_page=10, safe=False):
     current_page = 1
     while True:
-        current_page_data = sms_inbox_page(page=current_page, count=per_page)
+        current_page_data = sms_inbox_page(
+            page=current_page, count=per_page, safe=safe)
         if len(current_page_data) != 0:
             for message in current_page_data:
                 yield message
@@ -103,22 +109,25 @@ def sms_inbox(per_page=10):
         else:
             return
 
-def sms_inbox_page(page=1, count=10):
+
+def sms_inbox_page(page=1, count=10, safe=False):
     encoded_page = '{0}'.format(page - 1)
     encoded_data_per_page = '{0}'.format(count)
     params = {
-        'tags' : '12',
-        'data_per_page' : encoded_data_per_page,
-        'page' : encoded_page,
-        }
+        'tags': '12',
+        'data_per_page': encoded_data_per_page,
+        'page': encoded_page,
+    }
     response = api.sms_page_data(params)
-    response = [_decode_message(m) for m in response['messages']]
+    response = [_decode_message(m, safe=safe) for m in response['messages']]
     return response
 
-def sms_outbox(per_page=10):
+
+def sms_outbox(per_page=10, safe=False):
     current_page = 1
     while True:
-        current_page_data = sms_outbox_page(page=current_page, count=per_page)
+        current_page_data = sms_outbox_page(
+            page=current_page, count=per_page, safe=safe)
         if len(current_page_data) != 0:
             for message in current_page_data:
                 yield message
@@ -126,22 +135,25 @@ def sms_outbox(per_page=10):
         else:
             return
 
-def sms_outbox_page(page=1, count=10):
+
+def sms_outbox_page(page=1, count=10, safe=False):
     encoded_page = '{0}'.format(page - 1)
     encoded_data_per_page = '{0}'.format(count)
     params = {
-        'tags' : '2',
-        'data_per_page' : encoded_data_per_page,
-        'page' : encoded_page,
-        }
+        'tags': '2',
+        'data_per_page': encoded_data_per_page,
+        'page': encoded_page,
+    }
     response = api.sms_page_data(params)
-    response = [_decode_message(m) for m in response['messages']]
+    response = [_decode_message(m, safe=safe) for m in response['messages']]
     return response
 
-def sms_draftbox(per_page=10):
+
+def sms_draftbox(per_page=10, safe=False):
     current_page = 1
     while True:
-        current_page_data = sms_draftbox_page(page=current_page, count=per_page)
+        current_page_data = sms_draftbox_page(
+            page=current_page, count=per_page, safe=safe)
         if len(current_page_data) != 0:
             for message in current_page_data:
                 yield message
@@ -149,17 +161,19 @@ def sms_draftbox(per_page=10):
         else:
             return
 
-def sms_draftbox_page(page=1, count=10):
+
+def sms_draftbox_page(page=1, count=10, safe=False):
     encoded_page = '{0}'.format(page - 1)
     encoded_data_per_page = '{0}'.format(count)
     params = {
-        'tags' : '11',
-        'data_per_page' : encoded_data_per_page,
-        'page' : encoded_page,
-        }
+        'tags': '11',
+        'data_per_page': encoded_data_per_page,
+        'page': encoded_page,
+    }
     response = api.sms_page_data(params)
-    response = [_decode_message(m) for m in response['messages']]
+    response = [_decode_message(m, safe=safe) for m in response['messages']]
     return response
+
 
 def sms_send(number, message, index=-1, async=False):
     encoded_number = '{0};'.format(number)
@@ -195,14 +209,20 @@ def sms_delete(index, async=False):
     if not async:
         return _wait_for_status('6')
 
-def _decode_message(message):
+
+def _decode_message(message, safe):
     logging.getLogger(__name__).debug(message)
-    message['content'] = util.decode_sms_message(message['content'])
-    message['date'] = util.decode_time(message['date'])
-    message['tag'] = util.decode_sms_tag(message['tag'])
-    message['id'] = util.decode_sms_id(message['id'])
+    message['content'] = util.try_decode(
+        util.decode_sms_message, message['content'], safe=safe)
+    message['date'] = util.try_decode(
+        util.decode_time, message['date'], safe=safe)
+    message['tag'] = util.try_decode(
+        util.decode_sms_tag, message['tag'], safe=safe)
+    message['id'] = util.try_decode(
+        util.decode_sms_id, message['id'], safe=safe)
     logging.getLogger(__name__).debug(message)
     return message
+
 
 def _wait_for_status(sms_cmd, wait_max_times=10, wait_interval=2.0):
     wait_count = 0

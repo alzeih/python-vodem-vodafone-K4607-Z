@@ -109,6 +109,17 @@ def decode_wan_manual_contents_long(message):
     except Exception as ex:
         raise DecodeError(ex)
 
+
+def try_decode(decoder, key, safe=False, default=None):
+    try:
+        return decoder(key)
+    except DecodeError:
+        if safe:
+            return default
+        else:
+            raise
+
+
 def _decode_utcoffset(message):
     logging.getLogger(__name__).debug(message)
     try:
