@@ -1,6 +1,10 @@
 CHANGES
 =======
 
+0.2.0
+-----
+
+* remove pyenv version
 * Support for a greater number of characters including emoji
 * Add pypi version badge
 
