@@ -1,6 +1,7 @@
 CHANGES
 =======
 
+* Fix needed params for sntp_time and remove unused param for modem_model
 * Add api net_select_mode, signalbar, sim_active_result
 
 0.2.0

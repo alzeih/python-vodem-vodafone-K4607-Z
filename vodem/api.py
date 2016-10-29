@@ -358,7 +358,6 @@ def modem_main_state(overrides=None):
 def modem_model(overrides=None):
     defaults = {
         'cmd': 'modem_model',
-        'multi-data': '1',
     }
     params = _update_params(defaults, overrides)
     return get(params)
@@ -934,6 +933,7 @@ def sms_unread_num(overrides=None):
 def sntp_time(overrides=None):
     defaults = {
         'cmd': 'sntp_time',
+        'multi_data': '1',
     }
     params = _update_params(defaults, overrides)
     return get(params)
