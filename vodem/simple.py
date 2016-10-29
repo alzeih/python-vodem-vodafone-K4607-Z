@@ -256,4 +256,7 @@ def _wait_for_status(sms_cmd, wait_max_times=10, wait_interval=2.0):
             status = util.decode_sms_cmd_status_info(
                 status_response['sms_cmd_status_result'])
             if status is not None:
-                return status
+                if status == 3:
+                    return True
+                if status == 2:
+                    return False
