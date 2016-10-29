@@ -1,6 +1,8 @@
 CHANGES
 =======
 
+* Add api net_select_mode, signalbar, sim_active_result
+
 0.2.0
 -----
 

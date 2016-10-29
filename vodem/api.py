@@ -383,7 +383,14 @@ def msisdn(overrides=None):
 def net_select(overrides=None):
     defaults = {
         'cmd': 'net_select',
-        'multi_data': '1',
+    }
+    params = _update_params(defaults, overrides)
+    return get(params)
+
+
+def net_select_mode(overrides=None):
+    defaults = {
+        'cmd': 'net_select_mode',
     }
     params = _update_params(defaults, overrides)
     return get(params)
@@ -784,9 +791,25 @@ def set_web_language(overrides=None):
     return post(data)
 
 
+def signalbar(overrides=None):
+    defaults = {
+        'cmd': 'signalbar',
+    }
+    params = _update_params(defaults, overrides)
+    return get(params)
+
+
 def simcard_roam(overrides=None):
     defaults = {
         'cmd': 'simcard_roam',
+    }
+    params = _update_params(defaults, overrides)
+    return get(params)
+
+
+def sim_active_result(overrides=None):
+    defaults = {
+        'cmd': 'sim_active_result',
     }
     params = _update_params(defaults, overrides)
     return get(params)
