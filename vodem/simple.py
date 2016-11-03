@@ -1,3 +1,7 @@
+"""
+Vodem Simple
+
+"""
 import datetime
 import logging
 import time
@@ -8,42 +12,72 @@ logging.basicConfig()
 
 
 def sms_get_flag():
+    """
+    Sms get flag
+
+    """
     response = api.sms_received_flag()
     logging.getLogger(__name__).debug(response)
     return util.decode_number(response['sms_received_flag'])
 
 
 def sms_set_flag():
+    """
+    Sms set flag
+
+    """
     response = api.sms_received_flag_flag()
     logging.getLogger(__name__).debug(response)
     return util.decode_number(response['sms_received_flag']) == 0
 
 
 def sms_unread_count():
+    """
+    Sms unread count
+
+    """
     response = api.sms_unread_num()
     logging.getLogger(__name__).debug(response)
     return util.decode_number(response['sms_dev_unread_count'])
 
 
 def sms_inbox_count():
+    """
+    Sms inbox count
+
+    """
     response = api.sms_capacity_info()
     logging.getLogger(__name__).debug(response)
     return util.decode_number(response['sms_nv_rev_total'])
 
 
 def sms_outbox_count():
+    """
+    Sms outbox count
+
+    """
     response = api.sms_capacity_info()
     logging.getLogger(__name__).debug(response)
     return util.decode_number(response['sms_nv_send_total'])
 
 
 def sms_draftbox_count():
+    """
+    Sms draftbox count
+
+    """
     response = api.sms_capacity_info()
     logging.getLogger(__name__).debug(response)
     return util.decode_number(response['sms_nv_draftbox_total'])
 
 
 def sms_set_read(index):
+    """
+    Sms set read
+
+    Args
+      index (int):
+    """
     encoded_index = '{0};'.format(index)
 
     params = {
@@ -58,6 +92,15 @@ def sms_set_read(index):
 
 
 def sms_save(number, message, date=None, async=False):
+    """
+    Sms save
+
+    Args
+      number (str):
+      message (str):
+      date (datetime):
+      async (bool):
+    """
     if date is None:
         date = datetime.datetime.now()
     encoded_number = '{0};'.format(number)
@@ -80,6 +123,13 @@ def sms_save(number, message, date=None, async=False):
 
 
 def sms_inbox_unread(per_page=10, safe=False):
+    """
+    Sms inbox unread
+
+    Args
+      per_page (int):
+      safe (bool):
+    """
     current_page = 1
     while True:
         current_page_data = sms_inbox_page(
@@ -94,6 +144,13 @@ def sms_inbox_unread(per_page=10, safe=False):
 
 
 def sms_inbox_read(per_page=10, safe=False):
+    """
+    Sms inbox read
+
+    Args
+      per_page (int):
+      safe (bool):
+    """
     current_page = 1
     while True:
         current_page_data = sms_inbox_page(
@@ -108,6 +165,13 @@ def sms_inbox_read(per_page=10, safe=False):
 
 
 def sms_inbox(per_page=10, safe=False):
+    """
+    Sms inbox
+
+    Args
+      per_page (int):
+      safe (bool):
+    """
     current_page = 1
     while True:
         current_page_data = sms_inbox_page(
@@ -121,6 +185,14 @@ def sms_inbox(per_page=10, safe=False):
 
 
 def sms_inbox_page(page=1, count=10, safe=False):
+    """
+    Sms inbox page
+
+    Args
+      page (int):
+      count (int):
+      safe (bool):
+    """
     encoded_page = '{0}'.format(page - 1)
     encoded_data_per_page = '{0}'.format(count)
     params = {
@@ -134,6 +206,13 @@ def sms_inbox_page(page=1, count=10, safe=False):
 
 
 def sms_outbox(per_page=10, safe=False):
+    """
+    Sms outbox
+
+    Args
+      per_page (int):
+      safe (bool):
+    """
     current_page = 1
     while True:
         current_page_data = sms_outbox_page(
@@ -147,6 +226,14 @@ def sms_outbox(per_page=10, safe=False):
 
 
 def sms_outbox_page(page=1, count=10, safe=False):
+    """
+    Sms outbox page
+
+    Args
+      page (int):
+      count (int):
+      safe (bool):
+    """
     encoded_page = '{0}'.format(page - 1)
     encoded_data_per_page = '{0}'.format(count)
     params = {
@@ -160,6 +247,13 @@ def sms_outbox_page(page=1, count=10, safe=False):
 
 
 def sms_draftbox(per_page=10, safe=False):
+    """
+    Sms draftbox
+
+    Args
+      per_page (int):
+      safe (bool):
+    """
     current_page = 1
     while True:
         current_page_data = sms_draftbox_page(
@@ -173,6 +267,14 @@ def sms_draftbox(per_page=10, safe=False):
 
 
 def sms_draftbox_page(page=1, count=10, safe=False):
+    """
+    Sms draftbox page
+
+    Args
+      page (int):
+      count (int):
+      safe (bool):
+    """
     encoded_page = '{0}'.format(page - 1)
     encoded_data_per_page = '{0}'.format(count)
     params = {
@@ -186,6 +288,16 @@ def sms_draftbox_page(page=1, count=10, safe=False):
 
 
 def sms_send(number, message, date=None, index=-1, async=False):
+    """
+    Sms send
+
+    Args
+      number (str):
+      message (str):
+      date (datetime):
+      index (int):
+      async (bool):
+    """
     if date is None:
         date = datetime.datetime.now()
     encoded_number = '{0};'.format(number)
@@ -210,6 +322,13 @@ def sms_send(number, message, date=None, index=-1, async=False):
 
 
 def sms_delete(index, async=False):
+    """
+    Sms delete
+
+    Args
+      index (int):
+      async (bool):
+    """
     encoded_index = '{0};'.format(index)
 
     params = {

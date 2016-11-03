@@ -1,6 +1,7 @@
 CHANGES
 =======
 
+* Document vodem.simple
 * Accept date instead of always using datetime.now()
 * Return True and False for known result statuses
 * Fix needed params for sntp_time and remove unused param for modem_model
