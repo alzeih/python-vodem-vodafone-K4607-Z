@@ -57,10 +57,12 @@ def sms_set_read(index):
     return util.decode_result(response['result'])
 
 
-def sms_save(number, message, async=False):
+def sms_save(number, message, date=None, async=False):
+    if date is None:
+        date = datetime.datetime.now()
     encoded_number = '{0};'.format(number)
     encoded_message = util.encode_sms_message(message)
-    encoded_time = util.encode_time(datetime.datetime.now())
+    encoded_time = util.encode_time(date)
     message_encoding = util.encoding_of(message)
 
     params = {
@@ -183,10 +185,12 @@ def sms_draftbox_page(page=1, count=10, safe=False):
     return response
 
 
-def sms_send(number, message, index=-1, async=False):
+def sms_send(number, message, date=None, index=-1, async=False):
+    if date is None:
+        date = datetime.datetime.now()
     encoded_number = '{0};'.format(number)
     encoded_message = util.encode_sms_message(message)
-    encoded_time = util.encode_time(datetime.datetime.now())
+    encoded_time = util.encode_time(date)
     encoded_index = '{0};'.format(index)
     message_encoding = util.encoding_of(message)
 
