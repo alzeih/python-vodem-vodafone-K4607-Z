@@ -1,11 +1,15 @@
 CHANGES
 =======
 
+0.3.0
+-----
+
+* Update year to 2017
 * Document vodem.simple
 * Accept date instead of always using datetime.now()
 * Return True and False for known result statuses
-* Fix needed params for sntp_time and remove unused param for modem_model
-* Add api net_select_mode, signalbar, sim_active_result
+* Fix needed params for sntp\_time and remove unused param for modem\_model
+* Add api net\_select\_mode, signalbar, sim\_active\_result
 
 0.2.0
 -----
